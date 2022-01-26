@@ -51,6 +51,6 @@ def compute_metrics(x, y, batch_size):
         "MMD-CD": mmd_cd.cpu(),
         "MMD-EMD": mmd_emd.cpu(),
     }, {
-        "CD_YX": cd_yx,
-        "EMD_YX": emd_yx,
+        "CD_YX": cd_yx.cpu(),
+        "EMD_YX": emd_yx.cpu(),
     }

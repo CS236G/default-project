@@ -48,7 +48,7 @@ def parse_args():
     parser.add_argument(
         "--sample_size",
         type=int,
-        default=1024,
+        default=2048,
         help="Number of points sampled from each training sample.",
     )
     parser.add_argument(
