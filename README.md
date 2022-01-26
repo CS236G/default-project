@@ -1,5 +1,5 @@
-# Point Cloud GAN
-This repository implements a modified version of [Point Cloud GAN](https://github.com/chunliangli/Point-Cloud-GAN) (ICLR'19 Workshop) which achieves performance comparable to the [SetVAE](https://github.com/jw9730/setvae) in point cloud generation.
+# CS236G Default Project
+This repository contains Stanford CS236G default final project starter code. The baseline model is a modified version of [Point Cloud GAN](https://github.com/chunliangli/Point-Cloud-GAN) (ICLR'19 Workshop).
 
 ## Installation
 * Set up and activate conda environment.
@@ -39,6 +39,14 @@ You can evaluate checkpointed models using `test.py` or provided scripts.
 python test.py --ckpt_path CKPT_PATH --cate airplane
 # Test provided checkpoints
 sh scripts/test_shapenet_aiplane.sh
+```
+
+## Submitting
+Generate `submission.pth` in working directory using `test.py` and submit to Gradescope leaderboard.
+
+```shell
+# Submit the generated ./submission.pth to Gradescope
+python test.py --submit --ckpt_path CKPT_PATH --cate car
 ```
 
 ## Metrics
