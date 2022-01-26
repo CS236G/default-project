@@ -27,6 +27,12 @@ def parse_args():
 
     # Testing settings
     parser.add_argument(
+        "--submit",
+        default=False,
+        action="store_true",
+        help="Generate submission for GradeScope.",
+    )
+    parser.add_argument(
         "--seed", type=int, default=0, help="Manual seed for reproducibility."
     )
     parser.add_argument(
@@ -97,9 +103,13 @@ def main(args):
     trainer.load_checkpoint(args.ckpt_path)
 
     # Start testing
-    metrics, _ = trainer.test(test_loader)
+    (metrics, submission), _ = trainer.test(test_loader)
     torch.set_printoptions(precision=6)
     pprint.pprint(metrics)
+
+    # Generate submission
+    if args.submit:
+        torch.save(submission, "submission.pth")
 
 
 if __name__ == "__main__":

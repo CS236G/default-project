@@ -1,4 +1,4 @@
-name: pcgan
+name: cs236g
 channels:
   - conda-forge
   - pytorch

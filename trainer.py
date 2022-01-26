@@ -98,7 +98,7 @@ class Trainer:
         o, z1 = self.net_g(x)
         xp = self.net_d(x, z1.detach())
         op = self.net_d(o.detach(), z1.detach())
-        loss_d = F.relu(1. - xp).mean() + F.relu(1. + op).mean()
+        loss_d = F.relu(1.0 - xp).mean() + F.relu(1.0 + op).mean()
         return loss_d
 
     def train(self, train_loader, val_loader):
@@ -106,7 +106,7 @@ class Trainer:
 
             # Validation and checkpointing
             if self.epoch % self.val_every_n_epoch == 0:
-                metrics, samples = self.test(val_loader)
+                (metrics, _), samples = self.test(val_loader)
                 wandb.log({**metrics, "samples": samples, "epoch": self.epoch})
             if self.epoch % self.ckpt_every_n_epoch == 0:
                 self.save_checkpoint()

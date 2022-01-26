@@ -50,4 +50,7 @@ def compute_metrics(x, y, batch_size):
         "COV-EMD": cov_emd.cpu(),
         "MMD-CD": mmd_cd.cpu(),
         "MMD-EMD": mmd_emd.cpu(),
+    }, {
+        "CD_YX": cd_yx,
+        "EMD_YX": emd_yx,
     }

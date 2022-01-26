@@ -6,7 +6,7 @@ This repository contains Stanford CS236G default final project starter code. The
 
 ```shell
 conda env create -f environment.yml
-conda activate pcgan
+conda activate cs236g
 ```
 
 * Compile CUDA extensions.
@@ -26,7 +26,7 @@ You can train using `train.py` or provided scripts.
 
 ```shell
 # Train using CLI
-python train.py --name NAME --cate airplane
+python train.py --name NAME
 # Train using provided settings
 sh scripts/train_shapenet_aiplane.sh
 ```
@@ -36,7 +36,7 @@ You can evaluate checkpointed models using `test.py` or provided scripts.
 
 ```shell
 # Test user specified checkpoint using CLI
-python test.py --ckpt_path CKPT_PATH --cate airplane
+python test.py --ckpt_path CKPT_PATH
 # Test provided checkpoints
 sh scripts/test_shapenet_aiplane.sh
 ```
@@ -46,7 +46,7 @@ Generate `submission.pth` in working directory using `test.py` and submit to Gra
 
 ```shell
 # Submit the generated ./submission.pth to Gradescope
-python test.py --submit --ckpt_path CKPT_PATH --cate car
+python test.py --submit --ckpt_path CKPT_PATH
 ```
 
 ## Metrics
