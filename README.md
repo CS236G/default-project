@@ -43,20 +43,20 @@ python test.py --ckpt_path CKPT_PATH
 sh scripts/test_shapenet_airplane.sh
 ```
 
-## Logging
-Follow terminal instructions during the initial run to setup [Weight and Biases](https://wandb.ai) logging.
-If you do not want to use Weight and Biases, you can turn it off using:
-
-```shell
-wandb offline
-```
-
 ## Submitting
 Generate `submission.pth` in working directory using `test.py` and submit to Gradescope leaderboard.
 
 ```shell
 # Submit the generated ./submission.pth to Gradescope
 python test.py --submit --ckpt_path CKPT_PATH
+```
+
+## Logging
+Follow terminal instructions during the initial run to setup [`wandb`](https://wandb.ai) logging.
+If you do not want to use `wandb`, you can turn it off using:
+
+```shell
+wandb offline
 ```
 
 ## Metrics
