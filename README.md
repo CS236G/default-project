@@ -4,6 +4,7 @@ This repository contains Stanford CS236G default final project starter code. The
 ![Samples](https://user-images.githubusercontent.com/50810315/151111956-00f3fd73-5364-40bd-9ccd-d017062649af.png)
 
 ## Installation
+* Install Anaconda 4.11+.
 * Set up and activate conda environment.
 
 ```shell
