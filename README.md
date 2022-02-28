@@ -12,17 +12,13 @@ conda env create -f environment.yml
 conda activate cs236g
 ```
 
-* Compile CUDA extensions.
-
-```shell
-sh scripts/install.sh
-```
-
 * Download ShapeNet dataset and trained checkpoints.
 
 ```shell
 sh scripts/download.sh
 ```
+
+> NOTE: The first time you run the train or test script will take a while due Just-In-Time (JIT) compilation of CUDA kernels.
 
 ## Training
 You can train using `train.py` or provided scripts.
