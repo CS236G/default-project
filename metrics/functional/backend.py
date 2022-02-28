@@ -17,4 +17,5 @@ _backend = load(
             "bindings.cpp",
         ]
     ],
+    verbose=True,
 )
