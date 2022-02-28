@@ -18,8 +18,6 @@ conda activate cs236g
 sh scripts/download.sh
 ```
 
-> NOTE: The first time you run the train or test script will take a while due Just-In-Time (JIT) compilation of CUDA kernels.
-
 ## Training
 You can train using `train.py` or provided scripts.
 
