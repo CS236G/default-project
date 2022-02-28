@@ -1,8 +1,4 @@
-*.i
-*.ii
-*.gpu
-*.ptx
-*.cubin
-*.fatbin
-*.idea
-StructuralLosses
+*.o
+*.egg
+*.egg-info
+*.so

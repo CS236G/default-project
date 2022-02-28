@@ -93,11 +93,7 @@ def main(args):
     net_g = Generator()
 
     # Setup trainer
-    trainer = Trainer(
-        net_g=net_g,
-        batch_size=args.batch_size,
-        device=args.device,
-    )
+    trainer = Trainer(net_g=net_g, batch_size=args.batch_size, device=args.device,)
 
     # Load checkpoint
     trainer.load_checkpoint(args.ckpt_path)

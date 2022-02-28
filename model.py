@@ -25,9 +25,7 @@ class Encoder(nn.Module):
             nn.Tanh(),
         )
         self.ro = nn.Sequential(
-            nn.Linear(d_dim, d_dim),
-            nn.Tanh(),
-            nn.Linear(d_dim, z1_dim),
+            nn.Linear(d_dim, d_dim), nn.Tanh(), nn.Linear(d_dim, z1_dim),
         )
 
     def forward(self, x):

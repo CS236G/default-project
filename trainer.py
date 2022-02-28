@@ -67,12 +67,7 @@ class Trainer:
         }.items():
             m and m.load_state_dict(state_dict[k])
         self.step, self.epoch, self.max_epoch = map(
-            state_dict.get,
-            (
-                "step",
-                "epoch",
-                "max_epoch",
-            ),
+            state_dict.get, ("step", "epoch", "max_epoch",),
         )
 
     def save_checkpoint(self):

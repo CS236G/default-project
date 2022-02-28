@@ -1,18 +1,16 @@
 import torch
 from tqdm import tqdm
 
-# Import CUDA version of approximate EMD, from https://github.com/zekunhao1995/pcgan-pytorch/
-from metrics.StructuralLosses.match_cost import match_cost
-from metrics.StructuralLosses.nn_distance import nn_distance
+import metrics.functional as F
 
 
 def compute_cd(x, y, reduce_func=torch.mean):
-    d1, d2 = nn_distance(x, y)
+    d1, d2, _, _ = F.nmdistance(x, y)
     return reduce_func(d1, dim=1) + reduce_func(d2, dim=1)
 
 
 def compute_emd(x, y):
-    return match_cost(x, y) / x.size(1)
+    return F.matchcost(x, y) / x.size(1)
 
 
 def compute_pairwise_cd_emd(x, y, batch_size=32):
@@ -45,12 +43,12 @@ def compute_metrics(x, y, batch_size):
     cd_yx, emd_yx = compute_pairwise_cd_emd(y, x, batch_size)
     mmd_cd, cov_cd = compute_mmd_cov(cd_yx.t())
     mmd_emd, cov_emd = compute_mmd_cov(emd_yx.t())
-    return {
-        "COV-CD": cov_cd.cpu(),
-        "COV-EMD": cov_emd.cpu(),
-        "MMD-CD": mmd_cd.cpu(),
-        "MMD-EMD": mmd_emd.cpu(),
-    }, {
-        "CD_YX": cd_yx.cpu(),
-        "EMD_YX": emd_yx.cpu(),
-    }
+    return (
+        {
+            "COV-CD": cov_cd.cpu(),
+            "COV-EMD": cov_emd.cpu(),
+            "MMD-CD": mmd_cd.cpu(),
+            "MMD-EMD": mmd_emd.cpu(),
+        },
+        {"CD_YX": cd_yx.cpu(), "EMD_YX": emd_yx.cpu(),},
+    )

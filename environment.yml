@@ -7,6 +7,5 @@ dependencies:
   - cudatoolkit=10.2
   - pytorch::pytorch=1.8.0
   - plotly=5.5.0
+  - gdown=4.4.0
   - wandb
-  - gdown=3.8.3
-  - black
